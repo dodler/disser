@@ -2,9 +2,12 @@ import keras.backend as K
 from keras.preprocessing.image import ImageDataGenerator
 
 def get_generator(path, batch_size):
-    img_size = 299
+    img_size = 224
     train_gen = ImageDataGenerator(samplewise_center=True,
-                                   samplewise_std_normalization=True)
+                                   samplewise_std_normalization=True,
+					rotation_range=20,
+					width_shift_range=50,
+					height_shift_range=50)
     
     val_gen = ImageDataGenerator(samplewise_center=True,
                                    samplewise_std_normalization=True)
